@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    ul li a {
+        text-decoration: none;
+        color: chartreuse;
+    }
+</style>
+<ul>
+    {% for supply in delivery_list%}
+    <li><a href="{% url 'supply-details' supply.pk %}">{{ supply.supply_date }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

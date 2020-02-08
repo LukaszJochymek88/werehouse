@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{{ descent }}
+{% for descent in descent.descent_memory_set.all %}
+<p>{{ descent.product }}</p>
+<p>{{ descent.quantity }}</p>
+<hr>
+{% endfor %}
+
+{% endblock %}

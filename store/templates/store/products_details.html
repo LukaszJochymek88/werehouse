@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table>
+    <tr>
+        <td>TYP : </td>
+        <td>{{ product.kind }}</td>
+    </tr>
+    <tr>
+        <td>CENA : </td>
+        <td>{{ product.price|floatformat:2 }} zł</td>
+    </tr>
+    <tr>
+        <td>DOSTĘPNA ILOŚĆ :</td>
+        <td>{{ product.quantity }} szt.</td>
+    </tr>
+</table>
+{% endblock %}

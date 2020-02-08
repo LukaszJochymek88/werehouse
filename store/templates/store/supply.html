@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+{{ supply }}
+{% for delivery in supply.delivery_memory_set.all %}
+<p>{{ delivery.product }}</p>
+<p>{{ delivery.quantity }}</p>
+<hr>
+{% endfor %}
+{% endblock %}

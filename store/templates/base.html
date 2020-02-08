@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'store/style.css' %}">
+    <title>{{ title }}</title>
+</head>
+
+<body>
+    <section id="navigation">
+        <div class="container">
+
+            {% if user.is_anonymous %}
+            <nav class="menu">
+
+                <ul>
+                    <li><a href="{% url 'list-category' %}">Kategorie</a></li>
+                    <li><a href="{% url 'list-products' %}">Produkty</a></li>
+                    <form class="search" role="search" method="GET" action="{% url 'search' %}">
+                        <input type="hidden" name="name" value="on" />
+                        <input class="form-search" type="search" placeholder="Search" aria-label="Search" name="term" />
+                    </form>
+                    <li class="log"><a href="{% url 'login' %}">Zaloguj</a></li>
+                </ul>
+
+
+            </nav>
+            {% else %}
+            <nav class="menu">
+                <ul>
+                    <li><a href="{% url 'create-category' %}">DODAJ KATEGORIE</a></li>
+                    <li><a href="{% url 'create-product' %}">DODAJ PRZEDMIOT</a></li>
+                    <li><a href="{% url 'create-supply' %}">DODAJ DOSTAWĘ</a></li>
+                    <li><a href="{% url 'create-descent' %}">DODAJ ZEJŚCIE</a></li>
+                    <li class="logout"><a href="{% url 'logout' %}">Wyloguj</a></li>
+                </ul>
+
+            </nav>
+            {% endif %}
+
+        </div>
+    </section>
+    <section id="header">
+        <dev class="container"></dev>
+        <h1>{{ title }}</h1>
+
+        {% block content %}{% endblock %}
+        </dev>
+    </section>
+</body>
+
+</html>

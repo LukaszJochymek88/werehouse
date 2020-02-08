@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    ul li a {
+        text-decoration: none;
+        color: chartreuse;
+    }
+</style>
+<ul>
+    {% for category in category_list%}
+    <li><a href="{% url 'category-details' category.pk  %}">{{ category.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

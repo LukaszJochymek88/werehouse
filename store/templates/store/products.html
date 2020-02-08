@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    ul li a {
+        text-decoration: none;
+        color: chartreuse;
+    }
+</style>
+<ul>
+    {% for product in products_list%}
+    <li><a href="{% url 'products-details' product.pk %}">{{ product.name }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

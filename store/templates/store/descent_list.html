@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    ul li a {
+        text-decoration: none;
+        color: chartreuse;
+    }
+</style>
+<ul>
+    {% for descent in descent_list%}
+    <li><a href="{% url 'descent-details' descent.pk %}"">{{ descent.descent_date }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
